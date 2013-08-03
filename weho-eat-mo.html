@@ -2,66 +2,94 @@
 <html>
 	<head>
 		<title>WeHo Eat Mo</title>
-<style type="text/css">
-body {
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 3em;
-	font-weight: 100;
-}
-
-.spinner {
-	height: 100px;
-	overflow: hidden;
-	margin: 20px;
-}
-
-h1 {
-	font-size: 1.5em;
-	font-weight: 100;
-	text-align: center;
-}
-
-ol {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-li {
-	display: block;
-	width: 600px;
-	height: 60px;
-	background: #222;
-	color: #fff;
-	padding: 20px;
-	margin: 0 auto;
-	text-align: center;
-	border-radius: 10px;
-}
-
-#restaurant-list {
-	position: relative;
-	top: 0;
-	-webkit-transition: -webkit-transform 2s ease-out;
-}
-
-button {
-	display: block;
-	width: 300px;
-	padding: 10px;
-	background: #eee;
-	border: 0;
-	margin: 0 auto;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 0.5em;
-	font-weight: 100;
-	border-radius: 5px;
-}
-</style>
-		
+		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
 	<body>
 	
+		<div class="logo">
+			<div class="row">
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box red"></div>
+				<div class="box brown"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+			</div>
+			<div class="row">
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box red"></div>
+				<div class="box brown"></div>
+				<div class="box yellow"></div>
+				<div class="box yellow"></div>
+				<div class="box green"></div>
+				<div class="box blue"></div>
+				<div class="box blue"></div>
+				<div class="box purple"></div>
+			</div>
+			<div class="row">
+				<div class="box red"></div>
+				<div class="box red"></div>
+				<div class="box red"></div>
+				<div class="box red"></div>
+				<div class="box brown"></div>
+				<div class="box yellow"></div>
+				<div class="box green"></div>
+				<div class="box green"></div>
+				<div class="box blue"></div>
+				<div class="box purple"></div>
+				<div class="box purple"></div>
+				<div class="box purple"></div>
+			</div>
+			<div class="row">
+				<div class="box"></div>
+				<div class="box brown"></div>
+				<div class="box brown"></div>
+				<div class="box brown"></div>
+				<div class="box"></div>
+				<div class="box green"></div>
+				<div class="box"></div>
+				<div class="box blue"></div>
+				<div class="box purple"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+			</div>
+			<div class="row">
+				<div class="box"></div>
+				<div class="box yellow"></div>
+				<div class="box yellow"></div>
+				<div class="box yellow"></div>
+			</div>
+			<div class="row">
+				<div class="box"></div>
+				<div class="box green"></div>
+				<div class="box green"></div>
+				<div class="box green"></div>
+				<div class="box blue"></div>
+			</div>
+			<div class="row">
+				<div class="box"></div>
+				<div class="box blue"></div>
+				<div class="box blue"></div>
+				<div class="box blue"></div>
+			</div>
+			
+			<div id="logotype">
+				<span class="brown">WE</span>HO
+				<br />
+				EAT<span class="green">MO</span>
+			</div>
+		</div>
+		
 		<h1>Where should I go for lunch?</h1>
 		
 		<div class="spinner">
@@ -76,7 +104,7 @@ button {
 				<li>Barney's Beanery</li>
 				<li>Basix Cafe</li>
 				<li>Bite Restaurant</li>
-				<li>BLT Steak aka Le Dome Restaurant Brasserie</li>
+				<li>BLT Steak</li>
 				<li>BOA Steakhouse</li>
 				<li>Boxwood Cafe</li>
 				<li>Burger Lounge West Hollywood</li>
@@ -163,49 +191,9 @@ button {
 		<button id="pick-restaurant">
 			Tell me where to go
 		</button>
-		
-<script type="text/javascript">
-	var restaurants = document.getElementsByTagName('li');
-	var button = document.getElementById('pick-restaurant');
-	var restaurantList = document.getElementById('restaurant-list');
-	var restaurantsLen = restaurants.length;
 
-function getRandom() {
-	return Math.floor(Math.random() * (restaurantsLen - 1));
-}
-
-function spin() {
-	for (var i = 0; i < restaurants.length; i++) {
-		restaurants[i].style.color = 'yellow';
-	}
-	
-	button.onclick = function() {
-		var choiceNum = -1 * (getRandom() * 100);
-		
-		restaurantList.style['-webkit-transform'] = 'translateY(' + choiceNum + 'px)';
-
-/*		
-		
-		var choiceFood = restaurants[choiceNum];
-		
-		var choiceFoodTop = choiceNum * 30;
-		
-		restaurantList.style.top = '-' + choiceFoodTop + 'px';
-	
-		var listTop = window.getComputedStyle(restaurantList, null).getPropertyValue('top').slice(0, 2);
-		
-		var addPxInt = (parseInt(listTop, 10) + 90);
-		
-		var addPx = addPxInt.toString(10);
-		
-		console.log(addPx);
-		
-		restaurantList.style.top = '-' + addPx + 'px'; */
-	}
-}
-
-spin();	
-</script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>		
+<script type="text/javascript" src="wehoeatmo.js"></script>
 	</body>
 </html>
 
