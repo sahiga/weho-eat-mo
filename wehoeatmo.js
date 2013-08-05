@@ -28,6 +28,10 @@ function spin() {
 		random = getRandom();
 		choice = -1 * (random * 100);
 		restaurantList.style['-webkit-transform'] = 'translateY(' + choice + 'px)';
+		restaurantList.style['-moz-transform'] = 'translateY(' + choice + 'px)';
+		restaurantList.style['-ms-transform'] = 'translateY(' + choice + 'px)';
+		restaurantList.style['-o-transform'] = 'translateY(' + choice + 'px)';
+		restaurantList.style['transform'] = 'translateY(' + choice + 'px)';
 		choiceName = restaurants[random].innerHTML;
 		
 		createMap(choiceName);
