@@ -1,6 +1,11 @@
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 3em;
+}
+
+body,
+h1,
+button {
 	font-weight: 100;
 }
 
@@ -12,8 +17,30 @@ body {
 
 h1 {
 	font-size: 1.5em;
-	font-weight: 100;
 	text-align: center;
+}
+
+a {
+	color: #339a99;
+	text-decoration: none;
+}
+
+a:hover {
+	border-width: 0 0 1px 0;
+	border-color: #339a99;
+	border-style: solid;
+}
+
+footer {
+	margin: 200px 0 0 0;
+	padding: 0 10px;
+	color: #999;
+	text-align: right;
+	font-size: 0.3em;
+	font-weight: 200;
+	border-width: 1px 0 0 0;
+	border-color: #eee;
+	border-style: solid;
 }
 
 ol {
@@ -48,13 +75,36 @@ button {
 	display: block;
 	width: 300px;
 	padding: 10px;
-	background: #eee;
-	border: 0;
+	border: 1px solid #1B8281;
 	margin: 0 auto;
+	color: #fff;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 0.5em;
-	font-weight: 100;
+	cursor: hand;
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 	border-radius: 5px;
+	background: #339a99;
+	background-image: -webkit-gradient(linear, left top, left bottom, from (#339a99), to (#1c8786));
+	background-image: -webkit-linear-gradient(top, #339a99, #1c8786);
+	background-image: -moz-linear-gradient(top, #339a99, #1c8786);
+	background-image: -ms-linear-gradient(top, #339a99, #1c8786);
+	background-image: -o-linear-gradient(top, #339a99, #1c8786);
+	background-image: linear-gradient(top, #339a99, #1c8786);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#339a99', EndColorStr='#1c8786');
+}
+
+button:hover {
+	background-image: -webkit-gradient(linear, left bottom, left top, from (#339a99), to (#1c8786));
+	background-image: -webkit-linear-gradient(bottom, #339a99, #1c8786);
+	background-image: -moz-linear-gradient(bottom, #339a99, #1c8786);
+	background-image: -ms-linear-gradient(bottom, #339a99, #1c8786);
+	background-image: -o-linear-gradient(bottom, #339a99, #1c8786);
+	background-image: linear-gradient(bottom, #339a99, #1c8786);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#1c8786', EndColorStr='#339a99');
 }
 
 .logo {
