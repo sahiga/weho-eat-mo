@@ -1,11 +1,14 @@
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 3em;
+	font-weight: 200;
 }
 
-body,
 h1,
-button {
+h2,
+button,
+li,
+#logotype {
 	font-weight: 100;
 }
 
@@ -17,6 +20,11 @@ button {
 
 h1 {
 	font-size: 1.5em;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1.1em;
 	text-align: center;
 }
 
@@ -37,7 +45,6 @@ footer {
 	color: #999;
 	text-align: right;
 	font-size: 0.3em;
-	font-weight: 200;
 	border-width: 1px 0 0 0;
 	border-color: #eee;
 	border-style: solid;
@@ -76,7 +83,7 @@ button {
 	width: 300px;
 	padding: 10px;
 	border: 1px solid #1B8281;
-	margin: 0 auto;
+	margin: 10px auto;
 	color: #fff;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 0.5em;
@@ -187,4 +194,65 @@ button:hover {
 .title {
 	text-transform: uppercase;
 	font-weight: 800;
+}
+
+/* Bespoke Eat Mo */
+label {
+	font-size: 0.5em;
+	margin: 30px 40px;
+}
+
+input {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 0.5em;
+	border: 1px solid #cd9933;
+}
+
+.restaurant-name {
+	width: 50%;
+	margin: 30px;
+}
+
+.regular-input {
+	display: block;
+	margin: 0 auto 30px;
+	width: 80%;
+}
+
+.question {
+	font-size: 0.5em;
+	text-align: center;
+}
+
+.wrapper {
+	border-bottom: 1px solid #339a99;
+}
+
+.wrapper:hover,
+.wrapper:nth-child(odd):hover {
+	background: #F5EDFF;
+}
+
+.wrapper:nth-child(odd) {
+	background: #fafafa;
+}
+
+.container {
+	width: 940px;
+	margin: 0 auto;
+}
+
+fieldset {
+	border: 0;
+}
+
+.delete {
+	cursor: pointer;
+	cursor: hand;
+}
+
+.delete:before {
+	content: 'x';
+	font-size: 0.5em;
+	color: #cd9933;
 }
