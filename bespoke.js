@@ -1,4 +1,6 @@
 var bounds;
+var latitude;
+var longitude;
 
 function createWrapper(element) {
 	var nextElement = element.nextSibling.nextSibling;
@@ -86,7 +88,7 @@ function checkClass(elementList, classToCheck, callback, callbackParams) {
 
 function createPage() {
 	var page = window.open('');
-	var location = document.getElementById('location-input').value;
+	var location = document.getElementById('location-input').value.split(', ')[0];
 	var inputList = document.getElementsByTagName('input');
 	var restaurants = [];
 	var count = 0;
@@ -94,11 +96,12 @@ function createPage() {
 	page.document.write(
 		'<!DOCTYPE html><html><head>' +
 		'<link rel="stylesheet" type="text/css" href="style.css" /></head><body><h1>' + location + 
-		' Eat Mo</h1><h2>Help me pick a restaurant!</h2><div class="spinner"><ol id="restaurant-list">');
+		' Eat Mo</h1><h2>Help me pick a restaurant!</h2><div class="spinner"><ol id="restaurant-list">' +
+		'<li>???</li>');
 
 	for (count = 0; count < inputList.length; count++) {
 		if (inputList[count].className.indexOf('restaurant-name') !== -1 && inputList[count].value.length > 0) {
-			restaurants.push(inputList[count].value);
+			restaurants.push(inputList[count].value.split(', ')[0]);
 		}
 	}
 
@@ -110,7 +113,8 @@ function createPage() {
 		'<button id="pick-restaurant">Tell me where to go</button>' +
 		'<footer><p>Built with <a href="http://www.wehoeatmo.com">WeHo Eat Mo</p></footer>' +
 		'<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>' +
-		'</body><script type="text/javascript" src="wehoeatmo.js"></script></html>');
+		'</body><script type="text/javascript" src="wehoeatmo.js"></script>' +
+		'<script>spin(new google.maps.LatLng(' +  latitude + ', ' + longitude + '))</script></html>');
 
 
 }
@@ -123,7 +127,6 @@ function getCity() {
 	};
 
 	var autocompletePlace = new google.maps.places.Autocomplete(placeInput, placeOptions);
-	var city;
 
 	google.maps.event.addListener(autocompletePlace, 'place_changed', function() {
 		var place = autocompletePlace.getPlace();
@@ -134,9 +137,11 @@ function getCity() {
 			console.log('boo');
 			bounds = new google.maps.LatLngBounds();
 			bounds.extend(place.geometry.location);
-
 			restaurantInputSearch(bounds);
 		}
+
+		latitude = place.geometry.location.lat();
+		longitude = place.geometry.location.lng();
 	})
 }
 
@@ -155,8 +160,6 @@ function restaurantInputSearch(cityBounds) {
 		}
 	}
 }
-
-
 
 var labels = document.getElementsByTagName('label');
 

@@ -11,10 +11,9 @@ var service;
 var marker;
 var place;
 var request;
-var weho = new google.maps.LatLng(34.092047,-118.361906);
 
 // Main function: this is called at the end of the script
-function spin() {
+function spin(city) {
 	// Reduce font size for restaurants with long names
 	reduceFontSize(restaurants);
 
@@ -34,8 +33,8 @@ function spin() {
 		// Grab the name of the chosen restaurant
 		choiceName = restaurants[random].innerHTML;
 		
-		// Look up the chosen restaurant on the map		
-		createMap(choiceName);
+		// Look up the chosen restaurant in the given city on the map		
+		createMap(choiceName, city);
 	}
 	
 }
@@ -44,7 +43,7 @@ function spin() {
 function reduceFontSize(array) {
 	for (var i = 0; i < array.length; i++) {
 		if (array[i].innerHTML.length > 25) {
-			array[i].style.fontSize = '0.8em';
+			array[i].style.fontSize = '1.5em';
 		}
 	}
 }
@@ -54,7 +53,7 @@ function getRandom(range) {
 	return Math.floor(Math.random() * (range - 1));
 }
 
-function createMap(choiceName) {
+function createMap(choiceName, city) {
 	// Create the map if it does not exist	
 	if (document.getElementById('map') === null) {
 		var mapDiv = document.createElement('div');
@@ -63,20 +62,25 @@ function createMap(choiceName) {
 	}
 	
 	// Display the chosen restaurant on the map 
-	mapIt(choiceName);
+	mapIt(choiceName, city);
 }
 
-function mapIt(choiceName) {
-	// Create a new Google Map for West Hollywood
+function mapIt(choiceName, city) {
+	// Default to West Hollywood if the city is not provided
+	if (typeof city === 'undefined') {
+		var city = new google.maps.LatLng(34.092047,-118.361906);
+	}
+
+	// Create a new Google Map for the provided city
 	restMap = new google.maps.Map(document.getElementById('map'), {
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		center: weho,
+		center: city,
 		zoom: 15
 	});
 
 	// Make a request object based on the chosen restaurant
 	request = {
-		location: weho,
+		location: city,
 		radius: '500',
 		query: choiceName
 	};
@@ -120,4 +124,4 @@ function createMarker(place) {
 }
 
 // Call spin() to get this script rolling!
-spin();
+// spin();
